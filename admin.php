@@ -5,7 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>員工打卡系統管理</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/UAParser.js/0.7.28/ua-parser.min.js"></script>
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.2/firebase-app.js';
+    import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.14.2/firebase-auth.js';
+    import { collection, getDocs, query, where, orderBy, limit, startAfter, deleteDoc, doc, updateDoc, addDoc, getFirestore } from 'https://www.gstatic.com/firebasejs/10.14.2/firebase-firestore.js';
+
+    // Firebase 配置
+    const firebaseConfig = {
+  apiKey: "AIzaSyCUFjzxH6__HXPjIoOVQBtHryQPppTE8rg",
+  authDomain: "baipeiclock.firebaseapp.com",
+  projectId: "baipeiclock",
+  storageBucket: "baipeiclock.firebasestorage.app",
+  messagingSenderId: "770474889173",
+  appId: "1:770474889173:web:5cdf60fdaa930c1414375c"
+    };
+
+    // 初始化 Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
+  </script>
 </head>
 <body class="bg-gradient-to-r from-blue-100 to-indigo-100 min-h-screen p-4">
   <div class="container mx-auto">
